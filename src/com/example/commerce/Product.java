@@ -13,6 +13,18 @@ public class Product {
         this.stockQuantity = stockQuantity;
     }
 
+    boolean hasStock(int quantity){
+        return stockQuantity >= quantity ? true : false;
+    }
+
+    void decreaseStock(int quantity) {
+        if(!hasStock(quantity)) {
+            throw new IllegalArgumentException("재고가 부족합니다.");
+        }
+
+        stockQuantity -= quantity;
+    }
+
     public String getName() {
         return name;
     }
