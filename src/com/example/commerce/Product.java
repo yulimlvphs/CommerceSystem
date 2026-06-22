@@ -14,7 +14,7 @@ public class Product {
     }
 
     boolean hasStock(int quantity){
-        return stockQuantity >= quantity ? true : false;
+        return stockQuantity >= quantity;
     }
 
     void decreaseStock(int quantity) {
@@ -23,6 +23,25 @@ public class Product {
         }
 
         stockQuantity -= quantity;
+    }
+
+    public String getDisplayInfo() {
+        return String.format(
+                "%s | %,d원 | %s",
+                name,
+                price,
+                description
+        );
+    }
+
+    public String getDisplayInfoWithStock() {
+        return String.format(
+                "%s | %,d원 | %s | 재고: %d개",
+                name,
+                price,
+                description,
+                stockQuantity
+        );
     }
 
     public String getName() {
@@ -38,5 +57,17 @@ public class Product {
 
     public int getStockQuantity() {
         return stockQuantity;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 }
